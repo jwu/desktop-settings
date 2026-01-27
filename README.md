@@ -1,44 +1,20 @@
-# Total Commander Settings
+# Desktop Settings
 
-## Apply Settings
+个人桌面配置文件仓库
 
-Copy wincmd.ini file to `c:\Users\YOUR_NAME\AppData\Roaming\GHISLER\`
+## Total Commander 配置
 
-## Configuration
+将 `totalcmd/wincmd.ini` 复制到 `~\AppData\Roaming\GHISLER\` 即可使用。
 
-### Enable `Alt + D` for editing path
+详细配置说明请参考 [totalcmd/totalcmd-config.md](./totalcmd/totalcmd-config.md)。
 
-1. Go to `Configuration > Misc > Redefine hotkeys`
-1. Select Alt + D
-1. Add Command `cm_EditPath`
+## Zed 配置
 
-### Enable `F2` for rename file/folder
+将 `zed/settings.json` 复制到对应平台的 Zed 配置目录。
 
-1. Go to `Configuration > Misc > Redefine hotkeys`
-1. Select F2
-1. Add Command `cm_RenameOnly`
+详细同步方法请参考 [zed/zed-config.md](./zed/zed-config.md)。
 
-![](./imgs/conf-misc.png)
+## Reference
 
-### Enable typing for search
-
-1. Go to `Configuration > Quick Search`
-1. Choose `Letters - with search dialog`
-
-![](./imgs/conf-quick-search.png)
-
-### Change mouse selection mode
-
-1. Go to `Configuration > Operation`
-1. Go to `Mouse selection mode` section
-1. Choose `Left mouse button (Windows standard)`
-
-![](.\imgs\conf-mouse-selection.png)
-
-### Change selection color
-
-1. Go to `Configuration > Color`
-1. Edit `Mark color`
-1. Select `User inverted selection`
-
-![](./imgs/conf-color.png)
+- [Total Commander](https://www.ghisler.com/)
+- [Zed](https://zed.dev/)
