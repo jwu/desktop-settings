@@ -38,6 +38,8 @@
   - [Logseq](https://logseq.com/)
 - File Management
   - [Total Commander](https://www.ghisler.com/)
+- Design
+  - [PureRef](https://www.pureref.com/)
 - Coding
   - [Zed](https://zed.dev/)
   - [Neovide](https://neovide.dev/)
