@@ -33,16 +33,31 @@
   - [Inter](https://rsms.me/inter/)
   - Microsoft YaHei
   - PingFang SC
+- VPN
+  - [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev)
+  - [WgetCloud](https://wgetcloud.org/)
+- Coding
+  - [Zed](https://zed.dev/)
+  - [Neovide](https://neovide.dev/)
 - Documentation
   - [Obsidian](https://obsidian.md/)
   - [Logseq](https://logseq.com/)
 - File Management
   - [Total Commander](https://www.ghisler.com/)
-- Design
+- System Tools
+  - [7-Zip](https://www.7-zip.org/)
+  - [Everything](https://www.voidtools.com/)
+    - [Everything CLI](https://www.voidtools.com/support/everything/command_line_interface/)
+- Screen Capture
+  - [Snipaste](https://www.snipaste.com/)
+    - [ShareX](https://getsharex.com/)
+- Image Viewer
   - [PureRef](https://www.pureref.com/)
-- Coding
-  - [Zed](https://zed.dev/)
-  - [Neovide](https://neovide.dev/)
-- VPN
-  - [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev)
-  - [WgetCloud](https://wgetcloud.org/)
+  - [IrfanView](https://www.irfanview.com/)
+    - [qView](https://interversehq.com/qview/)
+- Media Players
+  - [PortPlayer](https://portplayer.net/)
+  - [VLC](https://www.videolan.org/vlc/)
+  - [OBS Studio](https://obsproject.com/)
+- Media Recorder
+  - [OBS Studio](https://obsproject.com/)
