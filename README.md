@@ -33,9 +33,6 @@
   - [Inter](https://rsms.me/inter/)
   - Microsoft YaHei
   - PingFang SC
-- VPN
-  - [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev)
-  - [WgetCloud](https://wgetcloud.org/)
 - Coding
   - [Zed](https://zed.dev/)
   - [Neovide](https://neovide.dev/)
@@ -61,3 +58,6 @@
   - [OBS Studio](https://obsproject.com/)
 - Media Recorder
   - [OBS Studio](https://obsproject.com/)
+- VPN
+  - [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev)
+  - [WgetCloud](https://wgetcloud.org/)
