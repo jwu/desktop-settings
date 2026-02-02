@@ -55,9 +55,8 @@
 - Media Players
   - [PortPlayer](https://portplayer.net/)
   - [VLC](https://www.videolan.org/vlc/)
-  - [OBS Studio](https://obsproject.com/)
 - Media Recorder
   - [OBS Studio](https://obsproject.com/)
 - VPN
   - [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev)
-  - [WgetCloud](https://wgetcloud.org/)
+    - [WgetCloud](https://wgetcloud.org/)
