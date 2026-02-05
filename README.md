@@ -53,9 +53,12 @@ brew install --cask input-source-pro
   - [Total Commander](https://www.ghisler.com/)
 - System Tools
   - [7-Zip](https://www.7-zip.org/)
-  - [Everything](https://www.voidtools.com/)
-    - [Everything CLI](https://www.voidtools.com/support/everything/command_line_interface/)
-  - [Input Source Pro](https://inputsource.pro/)
+  - Windows
+    - [Everything](https://www.voidtools.com/)
+      - [Everything CLI](https://www.voidtools.com/support/everything/command_line_interface/)
+  - MacOS
+    - [Input Source Pro](https://inputsource.pro/)
+    - [AutoRise](https://autorie.app/)
 - Screen Capture
   - [Snipaste](https://www.snipaste.com/)
     - [ShareX](https://getsharex.com/)
