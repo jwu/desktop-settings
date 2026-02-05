@@ -27,6 +27,16 @@
 
 详细说明请参考 [obsidian-config](./obsidian/obsidian-config.md)。
 
+## Input Source Pro 配置（MacOS）
+
+使用 Homebrew 安装：
+
+```bash
+brew install --cask input-source-pro
+```
+
+详细说明请参考 [inputsource-pro-config](./inputsource-pro/inputsource-pro-config.md)。
+
 ## Reference
 
 - Fonts
@@ -45,6 +55,7 @@
   - [7-Zip](https://www.7-zip.org/)
   - [Everything](https://www.voidtools.com/)
     - [Everything CLI](https://www.voidtools.com/support/everything/command_line_interface/)
+  - [Input Source Pro](https://inputsource.pro/)
 - Screen Capture
   - [Snipaste](https://www.snipaste.com/)
     - [ShareX](https://getsharex.com/)
