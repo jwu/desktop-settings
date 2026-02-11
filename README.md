@@ -46,6 +46,8 @@ brew install --cask input-source-pro
 - Coding
   - [Zed](https://zed.dev/)
   - [Neovide](https://neovide.dev/)
+- Version Control
+  - [GitButler](https://www.gitbutler.com/)
 - Documentation
   - [Obsidian](https://obsidian.md/)
   - [Logseq](https://logseq.com/)
