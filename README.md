@@ -37,6 +37,12 @@ brew install --cask input-source-pro
 
 详细说明请参考 [inputsource-pro-config](./inputsource-pro/inputsource-pro-config.md)。
 
+## Rime 输入法配置
+
+将配置文件复制到对应平台的 Rime 配置目录。
+
+详细说明请参考 [rime-config](./rime/rime-config.md)。
+
 ## Reference
 
 - Fonts
