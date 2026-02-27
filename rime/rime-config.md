@@ -6,15 +6,9 @@
 
 | 源文件 | 说明 |
 |--------|------|
-| `rime.custom.yaml` | 外观配置 |
-| `rime.default.custom.yaml` | 按键配置 + 输入方案配置 |
-
-### 目标文件名（按平台）
-
-| 平台 | rime.custom.yaml → | rime.default.custom.yaml → |
-|------|-------------------|---------------------------|
-| macOS | `squirrel.custom.yaml` | `default.custom.yaml` |
-| Windows | `weasel.custom.yaml` | `default.custom.yaml` |
+| `squirrel.custom.yaml` | macOS 外观配置 |
+| `weasel.custom.yaml` | macOS 外观配置 |
+| `default.custom.yaml` | 按键配置 + 输入方案配置 |
 
 ## 安装步骤
 
@@ -37,16 +31,16 @@ bash rime-install iDvel/rime-ice:others/recipes/full
 
 Rime 配置目录：`%APPDATA%\Rime\`
 
-1. 将 `rime.custom.yaml` 复制并重命名为 `weasel.custom.yaml`
-2. 将 `rime.default.custom.yaml` 复制并重命名为 `default.custom.yaml`
+1. 复制 `weasel.custom.yaml`
+2. 复制 `default.custom.yaml`
 3. 重新部署 Rime（右键托盘图标 → 重新部署）
 
 #### macOS
 
 Rime 配置目录：`~/Library/Rime/`
 
-1. 将 `rime.custom.yaml` 复制并重命名为 `squirrel.custom.yaml`
-2. 将 `rime.default.custom.yaml` 复制并重命名为 `default.custom.yaml`
+1. 复制 `squirrel.custom.yaml`
+2. 复制 `default.custom.yaml`
 3. 重新部署 Rime（菜单栏输入法图标 → 重新部署）
 
 ## 配置内容说明

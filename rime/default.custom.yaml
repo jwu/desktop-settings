@@ -1,0 +1,6 @@
+patch:
+  key_binder/bindings:
+    - { when: has_menu, accept: equal, send: Page_Down }
+    - { when: paging, accept: equal, send: Page_Down }
+    - { when: has_menu, accept: minus, send: minus }
+    - { when: paging, accept: minus, send: Page_Up }
