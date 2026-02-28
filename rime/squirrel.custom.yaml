@@ -14,7 +14,7 @@ patch:
     corner_radius: 5                          # 候选条圆角
     border_height: 0
     border_width: 0
-    font_face: ""                             # 候选词字体
+    font_face: "PingFangSC-Regular"           # 候选词字体
     font_point: 16                            # 候选词大小
     label_font_face: "Helvetica"              # 候选词编号字体
     label_font_point: 12                      # 候选编号大小
