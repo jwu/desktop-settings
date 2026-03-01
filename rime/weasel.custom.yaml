@@ -30,6 +30,6 @@ patch:
     hilited_candidate_back_color: 0xFFF0E4
     comment_text_color: 0x999999
     shadow_color: 0x33000000
-    border_color: 0xa0a0a0
+    border_color: 0x8E8E8E
     # candidate_border_color: 0x000000
-    hilited_candidate_border_color: 0xa0a0a0
+    hilited_candidate_border_color: 0x8E8E8E
