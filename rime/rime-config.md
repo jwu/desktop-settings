@@ -33,7 +33,8 @@ Rime 配置目录：`%APPDATA%\Rime\`
 
 1. 复制 `weasel.custom.yaml`
 2. 复制 `default.custom.yaml`
-3. 重新部署 Rime（右键托盘图标 → 重新部署）
+3. 复制 `rime_ice.custom.yaml`
+4. 重新部署 Rime（右键托盘图标 → 重新部署）
 
 #### macOS
 
@@ -41,7 +42,8 @@ Rime 配置目录：`~/Library/Rime/`
 
 1. 复制 `squirrel.custom.yaml`
 2. 复制 `default.custom.yaml`
-3. 重新部署 Rime（菜单栏输入法图标 → 重新部署）
+3. 复制 `rime_ice.custom.yaml`
+4. 重新部署 Rime（菜单栏输入法图标 → 重新部署）
 
 ## 配置内容说明
 
