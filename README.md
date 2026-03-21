@@ -75,6 +75,7 @@ brew install --cask input-source-pro
   - [IrfanView](https://www.irfanview.com/)
     - [qView](https://interversehq.com/qview/)
 - Media Players
+  - [iina](https://github.com/iina/iina)
   - [PortPlayer](https://portplayer.net/)
   - [VLC](https://www.videolan.org/vlc/)
 - Media Recorder
