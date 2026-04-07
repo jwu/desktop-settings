@@ -1,0 +1,49 @@
+# AeroSpace 配置说明
+
+本目录包含我的 AeroSpace 配置文件：`./.aerospace.toml`。
+
+## 配置文件位置
+
+将配置复制到：
+
+```bash
+cp .aerospace.toml ~/.aerospace.toml
+```
+
+修改配置后，可以重载 AeroSpace 配置使其生效。
+
+## 配置特点
+
+这份配置整体比较简单，主要包括：
+
+- 使用 `Alt + H/J/K/L` 在窗口之间切换焦点
+- 使用 `Alt + Shift + H/J/K/L` 移动窗口
+- 使用 `Alt + -` / `Alt + =` 调整窗口大小
+- 使用 `Alt + /` 和 `Alt + ,` 切换布局
+- 使用 `Alt + 数字 / 字母` 切换工作区
+- 使用 `Alt + Shift + ;` 进入 service 模式，执行重载配置、重置布局、移动窗口到工作区等操作
+
+## 工作区分配
+
+当前配置里：
+
+- `1` 到 `5` 分配到内建屏幕（`built-in`）
+- `6` 到 `0` 分配到副屏（`secondary`）
+
+并预先保留了多个持久工作区，方便长期使用固定分组。
+
+## 窗口行为
+
+当前配置默认会让新窗口先以浮动方式打开：
+
+```toml
+[[on-window-detected]]
+check-further-callbacks = true
+run = 'layout floating'
+```
+
+如果有需要，可以再针对特定应用单独改回 tiling。
+
+## 参考
+
+- AeroSpace: https://github.com/nikitabobko/AeroSpace

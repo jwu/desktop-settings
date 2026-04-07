@@ -37,6 +37,12 @@ brew install --cask input-source-pro
 
 详细说明请参考 [inputsource-pro-config](./inputsource-pro/inputsource-pro-config.md)。
 
+## AeroSpace 配置（MacOS）
+
+将 `aerospace/.aerospace.toml` 复制到 `~/.aerospace.toml`。
+
+详细说明请参考 [aerospace-config](./aerospace/aerospace-config.md)。
+
 ## Rime 输入法配置
 
 将配置文件复制到对应平台的 Rime 配置目录。
@@ -59,6 +65,9 @@ brew install --cask input-source-pro
   - [Logseq](https://logseq.com/)
 - File Management
   - [Total Commander](https://www.ghisler.com/)
+- Window Management
+  - MacOS
+    - [AeroSpace](https://github.com/nikitabobko/AeroSpace)
 - System Tools
   - [7-Zip](https://www.7-zip.org/)
   - Windows
@@ -80,6 +89,7 @@ brew install --cask input-source-pro
   - [VLC](https://www.videolan.org/vlc/)
 - Media Recorder
   - [OBS Studio](https://obsproject.com/)
+  - [OpenScreen](https://openscreen.vercel.app/)
 - VPN
   - [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev)
     - [WgetCloud](https://wgetcloud.org/)
