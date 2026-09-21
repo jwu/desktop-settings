@@ -43,11 +43,34 @@ brew install --cask input-source-pro
 
 详细说明请参考 [aerospace-config](./aerospace/aerospace-config.md)。
 
-## Rime 输入法配置
+### Linux 桌面配置
 
-将配置文件复制到对应平台的 Rime 配置目录。
+Linux 下的 Niri、Hyprland、Ghostty 和输入法环境配置保存在相邻的 `configs` 仓库中：
 
-详细说明请参考 [rime-config](./rime/rime-config.md)。
+- `configs/linux/.config/niri/config.kdl`：Niri 输出、布局、启动项和快捷键
+- `configs/linux/.config/hypr/hyprland.lua`：备用 Hyprland 配置
+- `configs/linux/.config/ghostty/config.ghostty`：Ghostty 字体、颜色和快捷键
+- `configs/linux/.config/environment.d/fcitx5.conf`：GTK、Qt 和 XMODIFIERS 输入法环境变量
+
+`configs/linux/config.sh` 会在对应程序已安装时同步这些配置。Niri 和 Ghostty 会在重新启动程序后读取新配置。
+
+### Fcitx5 / Rime Linux 配置
+
+Linux 专用的 Fcitx5 配置位于 `fcitx5/`：
+
+- `fcitx5/profile`：启用 `keyboard-us` 和 Rime
+- `fcitx5/classicui.conf`：横向候选列表、字体和主题
+- `fcitx5/themes/jwu/theme.conf`：白底、蓝色高亮和灰色注释
+- `fcitx5/install-linux.sh`：同步 Fcitx5 和 Rime 用户配置
+
+安装 Fcitx5、`fcitx5-rime` 和 Rime Ice 后运行：
+
+```bash
+cd ~/bin/desktop-settings/fcitx5
+./install-linux.sh
+```
+
+脚本只同步用户补丁和候选窗配置，不提交或覆盖 Rime Ice 词库、`build/`、用户词频数据库和 Fcitx5 的键盘缓存。
 
 ## Reference
 

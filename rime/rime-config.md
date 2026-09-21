@@ -2,13 +2,22 @@
 
 ## 配置文件说明
 
-### 源文件
+### Linux / Fcitx5
 
-| 源文件 | 说明 |
-|--------|------|
-| `squirrel.custom.yaml` | macOS 外观配置 |
-| `weasel.custom.yaml` | macOS 外观配置 |
-| `default.custom.yaml` | 按键配置 + 输入方案配置 |
+Fcitx5 的 Rime 用户目录为 `~/.local/share/fcitx5/rime/`。本仓库只保存跨平台用户补丁：
+
+- `default.custom.yaml`
+- `rime_ice.custom.yaml`
+
+Fcitx5 的候选窗配置不读取 `squirrel.custom.yaml` 或 `weasel.custom.yaml`。Linux 专用的候选窗配置位于 `../fcitx5/`，包括 Classic UI 主题、字体和输入法 profile。安装 Rime 和 Fcitx5 后运行：
+
+```bash
+cd ../fcitx5
+./install-linux.sh
+```
+
+脚本不会同步 Rime Ice 的词库、`build/`、用户词频数据库或其他生成文件。
+
 
 ## 安装步骤
 
@@ -49,13 +58,10 @@ Rime 配置目录：`~/Library/Rime/`
 
 ### 外观配置（squirrel.custom.yaml / weasel.custom.yaml）
 
-- 基于：冷漠／Apathy
+- macOS/Windows 客户端使用各自的候选窗配置
 - 候选词水平排列
 - 单行显示候选
-- 自定义配色：
-  - 候选文字：#EE6E00
-  - 候选背景：#FFF0E4
-  - 提示文字：#999999
+- Linux Fcitx5 使用 `../fcitx5/themes/jwu/theme.conf` 实现对应样式
 
 ### 按键配置 + 输入方案配置（default.custom.yaml）
 
