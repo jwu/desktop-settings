@@ -1,52 +1,50 @@
 # AGENTS.md - 桌面设置仓库
 
-本仓库包含 Total Commander 配置文件（wincmd.ini），不是一个代码项目。没有构建系统、lint 或测试流程。
+跨平台桌面配置仓库：Windows、macOS、Linux 的桌面应用与输入法设置。没有构建系统，
+唯一的可执行逻辑是 `fcitx5/install-linux.sh`。
 
-## 仓库用途
+## 仓库结构
 
-这是一个仅用于存储 Total Commander 设置的配置仓库。主要文件是 `wincmd.ini` - Total Commander 的 INI 格式配置文件。
+| 目录 | 内容 | 说明 |
+| --- | --- | --- |
+| `totalcmd/` | `wincmd.ini` | Total Commander 配置（INI） |
+| `zed/` | `settings.json` | Zed 编辑器设置 |
+| `obsidian/` | `template-vault/` | Obsidian 保险库模板 |
+| `inputsource-pro/` | 说明与截图 | macOS 输入法切换（Input Source Pro） |
+| `aerospace/` | `.aerospace.toml` | macOS 平铺窗口管理 |
+| `fcitx5/` | `profile`、`classicui.conf`、`themes/jwu/` | Linux Fcitx5 与候选窗主题 |
+| `rime/` | `*.custom.yaml` | Rime（Ice）用户补丁 |
 
-## 无需构建/Lint/测试命令
+每个目录下都有对应的 `*-config.md` 说明文档。
 
-本仓库不包含可执行代码，不需要构建、lint 或测试命令。
+## 安装脚本
 
-## 代码风格指南
+`fcitx5/install-linux.sh`：
 
-### INI 文件规范
+- Bash，`set -euo pipefail`
+- 只同步用户补丁（`profile`、`classicui.conf`、主题、`rime/*.custom.yaml`），覆盖前备份为
+  `.bak`
+- 不提交或覆盖 Rime Ice 词库、`build/`、用户词频数据库和 Fcitx5 键盘缓存
+- 改动后验证：`bash -n fcitx5/install-linux.sh`
 
-- 使用 `[SectionName]` 格式的节标题
-- 键值对保持 `Key=Value` 格式，`=` 周围不加空格
-- 在节块内使用一致的缩进以提高可读性
-- 将相关设置分组放在适当的节标题下
-- 需要说明时使用 `;` 前缀添加注释
+## 文件格式规范
 
-### 热键定义
+### Total Commander（INI）
 
-- 在 `[Shortcuts]` 节中定义自定义快捷键
-- 格式：`KeyCombination=CommandName`
-- 使用标准的 Total Commander 命令名（如 `cm_EditPath`、`cm_RenameOnly`）
-- 保持热键组合直观一致
+- 节标题用 `[SectionName]`；键值对 `Key=Value`，`=` 周围不加空格
+- 相关设置分组放到对应节下；需要说明时用 `;` 前缀注释
+- 热键在 `[Shortcuts]` 中定义，格式 `KeyCombination=CommandName`，使用标准命令名
+  （如 `cm_EditPath`、`cm_RenameOnly`）
+- 颜色用十进制 RGB（如 `16744448`）；特殊值 `-1` 系统默认、`0` 禁用，行内注释记录
+- 窗口几何 `Key=X,Y,Width,Height`；分辨率节 `[WidthxHeight]`；
+  显示器条目 `monitor(index,x,y,width,height;dpi)=geometry`
 
-### 颜色设置
+### Fcitx5 / Rime
 
-- 颜色值使用十进制 RGB 格式（如 `16744448` 表示特定蓝色）
-- 特殊值：`-1` 表示系统默认，`0` 表示禁用
-- 使用行内注释记录自定义颜色选择
-
-### 窗口位置
-
-- 窗口几何格式为 `Key=X,Y,Width,Height`
-- 分辨率特定节使用 `[WidthxHeight]` 格式
-- 显示器特定条目使用 `monitor(index,x,y,width,height;dpi)=geometry` 格式
-
-## 文件组织
-
-- `wincmd.ini` - Total Commander 主配置文件
-- `totalcmd-config.md` - 配置说明文档
-- `images/` - 配置说明截图
+- `rime/*.custom.yaml` 只保留对上游配置的补丁，不整文件复制
+- 修改后由脚本调用 `rime_deployer --build` 重建（若可用）
 
 ## 版本控制
 
-- 使用描述性消息提交配置更改
-- 尽可能将相关更改分组在单次提交中
-- 配置更新不需要代码审查
+- 使用描述性提交消息，相关改动尽量合并到一次提交
+- 配置更新无需代码审查
