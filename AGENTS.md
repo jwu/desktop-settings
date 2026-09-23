@@ -12,6 +12,7 @@
 | `obsidian/` | `template-vault/` | Obsidian 保险库模板 |
 | `inputsource-pro/` | 说明与截图 | macOS 输入法切换（Input Source Pro） |
 | `aerospace/` | `.aerospace.toml` | macOS 平铺窗口管理 |
+| `mac/` | `install.sh` | macOS 同步脚本（AeroSpace、Zed） |
 | `fcitx5/` | `profile`、`classicui.conf`、`themes/jwu/` | Linux Fcitx5 与候选窗主题 |
 | `rime/` | `*.custom.yaml` | Rime（Ice）用户补丁 |
 
@@ -19,9 +20,18 @@
 
 ## 安装脚本
 
+两组脚本都是 Bash + `set -euo pipefail`，覆盖前备份为 `.bak.$TIMESTAMP`，保持可重复执行。
+
+`mac/install.sh`：
+
+- 同步 `aerospace/.aerospace.toml` 到 `~/.aerospace.toml`、`zed/settings.json` 到
+  `~/.config/zed/settings.json`
+- 检测到 `aerospace` 命令时执行 `aerospace reload-config`
+- Input Source Pro、Obsidian、Total Commander 不在脚本范围内
+- 改动后验证：`bash -n mac/install.sh`
+
 `fcitx5/install-linux.sh`：
 
-- Bash，`set -euo pipefail`
 - 只同步用户补丁（`profile`、`classicui.conf`、主题、`rime/*.custom.yaml`），覆盖前备份为
   `.bak.$TIMESTAMP`
 - 不提交或覆盖 Rime Ice 词库、`build/`、用户词频数据库和 Fcitx5 键盘缓存

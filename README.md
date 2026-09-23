@@ -43,16 +43,27 @@ brew install --cask input-source-pro
 
 详细说明请参考 [aerospace-config](./aerospace/aerospace-config.md)。
 
-### Linux 桌面配置
+## macOS 自动配置
 
-Linux 下的 Niri、Hyprland、Ghostty 和输入法环境配置保存在相邻的 `configs` 仓库中：
+```bash
+cd ~/bin/desktop-settings/mac
+./install.sh
+```
 
-- `configs/linux/.config/niri/config.kdl`：Niri 输出、布局、启动项和快捷键
-- `configs/linux/.config/hypr/hyprland.lua`：备用 Hyprland 配置
-- `configs/linux/.config/ghostty/config.ghostty`：Ghostty 字体、颜色和快捷键
-- `configs/linux/.config/environment.d/fcitx5.conf`：GTK、Qt 和 XMODIFIERS 输入法环境变量
+`mac/install.sh` 把 `aerospace/.aerospace.toml` 同步到 `~/.aerospace.toml`，把 `zed/settings.json` 同步到 `~/.config/zed/settings.json`，覆盖前备份为 `.bak.<时间戳>`，并在检测到 `aerospace` 命令时执行 `aerospace reload-config`。Input Source Pro、Obsidian 和 Total Commander 仍按各自文档手动配置。
 
-`configs/linux/config.sh` 会在对应程序已安装时同步这些配置。Niri 和 Ghostty 会在重新启动程序后读取新配置。
+## Linux 桌面配置
+
+Linux 终端与桌面配置位于相邻的 `configs` 仓库，由 `configs/linux/config.sh` 同步：
+
+- `linux/.zshrc` → `~/.zshrc`
+- `common/.config/nvim/init.lua` → `~/.config/nvim/init.lua`
+- `linux/.config/starship.toml` → `~/.config/starship.toml`
+- `linux/.config/alacritty/alacritty.toml` → `~/.config/alacritty/alacritty.toml`（仅已安装 Alacritty 时）
+- `common/.omnisharp/omnisharp.json` → `~/.omnisharp/omnisharp.json`
+- `/etc/vconsole.conf` 的 TTY 字体（`ter-v16n`，需要 sudo）
+
+该仓库目前不包含 Niri、Hyprland 或 Linux 下的 Ghostty 配置；`configs/linux/.config/fish/config.fish` 和 `configs/linux/.config/zellij/config.kdl` 需要手动复制。
 
 ### Fcitx5 / Rime Linux 配置
 
@@ -71,6 +82,18 @@ cd ~/bin/desktop-settings/fcitx5
 ```
 
 脚本只同步用户补丁和候选窗配置，不提交或覆盖 Rime Ice 词库、`build/`、用户词频数据库和 Fcitx5 的键盘缓存。
+
+## 更新配置
+
+```bash
+cd ~/bin/desktop-settings
+git pull
+
+./mac/install.sh            # macOS：AeroSpace 与 Zed
+./fcitx5/install-linux.sh   # Linux：Fcitx5 与 Rime（需已安装 fcitx5）
+```
+
+`mac/install.sh` 与 `fcitx5/install-linux.sh` 都可重复执行，覆盖前会按时间戳备份旧文件。
 
 ## Reference
 
