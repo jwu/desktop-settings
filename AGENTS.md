@@ -23,7 +23,7 @@
 
 - Bash，`set -euo pipefail`
 - 只同步用户补丁（`profile`、`classicui.conf`、主题、`rime/*.custom.yaml`），覆盖前备份为
-  `.bak`
+  `.bak.$TIMESTAMP`
 - 不提交或覆盖 Rime Ice 词库、`build/`、用户词频数据库和 Fcitx5 键盘缓存
 - 改动后验证：`bash -n fcitx5/install-linux.sh`
 
