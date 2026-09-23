@@ -23,7 +23,7 @@
 
 ## Obsidian 配置
 
-打开 `obsidian/template-vault` 作为 Obsidian 保险库。
+保险库模板是独立仓库 [`jwu/obsidian-vault-template`](https://github.com/jwu/obsidian-vault-template)：克隆到你自己的工作目录，再用 Obsidian 打开。
 
 详细说明请参考 [obsidian-config](./obsidian/obsidian-config.md)。
 
