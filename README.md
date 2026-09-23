@@ -54,16 +54,17 @@ cd ~/bin/desktop-settings/mac
 
 ## Linux 桌面配置
 
-Linux 终端与桌面配置位于相邻的 `configs` 仓库，由 `configs/linux/config.sh` 同步：
+Linux 下的桌面与输入法配置保存在相邻的 `configs` 仓库中，由 `configs/linux/config.sh` 在对应程序已安装时同步：
 
-- `linux/.zshrc` → `~/.zshrc`
-- `common/.config/nvim/init.lua` → `~/.config/nvim/init.lua`
-- `linux/.config/starship.toml` → `~/.config/starship.toml`
-- `linux/.config/alacritty/alacritty.toml` → `~/.config/alacritty/alacritty.toml`（仅已安装 Alacritty 时）
-- `common/.omnisharp/omnisharp.json` → `~/.omnisharp/omnisharp.json`
-- `/etc/vconsole.conf` 的 TTY 字体（`ter-v16n`，需要 sudo）
+- `configs/linux/.config/niri/config.kdl`：Niri 输出、布局、启动项和快捷键
+- `configs/linux/.config/hypr/hyprland.lua`：备用 Hyprland 配置
+- `configs/linux/.config/hypr/hyprlock.conf`：hyprlock 锁屏（备用 swaylock 见 `configs/linux/.config/swaylock/config`）
+- `configs/linux/.config/ghostty/config.ghostty`：Ghostty 字体、颜色和快捷键
+- `configs/linux/.config/waybar/`：Waybar 模块、配色与取值脚本
+- `configs/linux/.config/environment.d/fcitx5.conf`：GTK、Qt 和 XMODIFIERS 输入法环境变量
+- `configs/linux/.local/share/icons/`：Fcitx5 托盘图标
 
-该仓库目前不包含 Niri、Hyprland 或 Linux 下的 Ghostty 配置；`configs/linux/.config/fish/config.fish` 和 `configs/linux/.config/zellij/config.kdl` 需要手动复制。
+`configs/linux/config.sh` 还会同步 `linux/.zshrc`、nvim、starship、git 和 TTY 字体等通用配置，完整清单见 `configs/README.md` 的「Linux 配置方案 → 手动配置」。`environment.d` 的改动需要重新登录后才会生效。
 
 ### Fcitx5 / Rime Linux 配置
 
