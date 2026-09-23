@@ -2,6 +2,19 @@
 
 本目录包含我的 AeroSpace 配置文件：`./.aerospace.toml`。
 
+## 安装
+
+AeroSpace 不在 Homebrew 主 cask 源中，需要先添加作者 tap：
+
+```bash
+brew tap nikitabobko/tap
+brew install --cask nikitabobko/tap/aerospace
+```
+
+新版 Homebrew 会拒绝加载未信任的第三方 cask，需先执行 `brew trust --cask nikitabobko/tap/aerospace`（旧版可跳过）。
+
+首次启动 AeroSpace 后，需要在「系统设置 → 隐私与安全性 → 辅助功能」中授权，`aerospace` CLI 才能连上服务。此后可用 `aerospace reload-config` 重载配置，`mac/install.sh` 在检测到该命令时也会自动调用。
+
 ## 配置文件位置
 
 将配置复制到：
@@ -9,6 +22,8 @@
 ```bash
 cp .aerospace.toml ~/.aerospace.toml
 ```
+
+macOS 上也可以直接运行 `mac/install.sh`，它会完成这步复制（覆盖前备份）并重载配置。
 
 修改配置后，可以重载 AeroSpace 配置使其生效。
 
