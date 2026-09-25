@@ -15,12 +15,52 @@ backup_file() {
   fi
 }
 
+# Rime Ice is a third-party 16 MB release that moves independently of this repo,
+# so it is not vendored here. Install it on the first run only, and never clear
+# the user directory: *.userdb holds the learned frequency data, which is exactly
+# what an update must preserve. See rime/rime-config.md.
+RIME_ICE_MIRROR="https://mirror.nju.edu.cn/github-release/iDvel/rime-ice/LatestRelease/full.zip"
+RIME_ICE_UPSTREAM="https://github.com/iDvel/rime-ice/releases/latest/download/full.zip"
+
+install_rime_ice() {
+  if [ -f "$RIME_DIR/rime_ice.schema.yaml" ]; then
+    echo "Rime Ice dictionaries already present."
+    return 0
+  fi
+  local tmp
+  tmp="$(mktemp -d)" || return 1
+  echo "Downloading Rime Ice dictionaries (~16 MB)..."
+  if ! curl -fL --retry 2 -o "$tmp/full.zip" "$RIME_ICE_MIRROR"; then
+    if ! curl -fL --retry 2 -o "$tmp/full.zip" "$RIME_ICE_UPSTREAM"; then
+      rm -rf "$tmp"
+      return 1
+    fi
+  fi
+  if command -v bsdtar &> /dev/null; then
+    bsdtar -xf "$tmp/full.zip" -C "$RIME_DIR" || { rm -rf "$tmp"; return 1; }
+  elif command -v unzip &> /dev/null; then
+    unzip -q -o "$tmp/full.zip" -d "$RIME_DIR" || { rm -rf "$tmp"; return 1; }
+  else
+    echo "Neither bsdtar nor unzip is available to unpack the archive." >&2
+    rm -rf "$tmp"
+    return 1
+  fi
+  rm -rf "$tmp"
+  echo "Rime Ice dictionaries installed."
+}
+
 if ! command -v fcitx5 &> /dev/null; then
   echo "Error: fcitx5 is not installed."
   exit 1
 fi
 
 mkdir -p "$FCITX_CONFIG_DIR/conf" "$FCITX_DATA_DIR/themes/jwu" "$RIME_DIR"
+
+# Dictionaries first: the patches below are applied on top of them, so a future
+# release that happens to ship a .custom.yaml cannot overwrite them.
+if ! install_rime_ice; then
+  echo "Warning: Rime Ice dictionaries were not installed; see rime/rime-config.md." >&2
+fi
 
 backup_file "$FCITX_CONFIG_DIR/profile"
 cp "$SCRIPT_DIR/profile" "$FCITX_CONFIG_DIR/profile"
@@ -43,4 +83,5 @@ fi
 fcitx5-remote -r 2>/dev/null || true
 
 echo "Fcitx5 configuration installed."
-echo "Rime Ice dictionaries and generated build files are left untouched."
+echo "Rime Ice dictionaries are installed on the first run when missing;"
+echo "build/ and the user frequency data are never touched."

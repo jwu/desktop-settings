@@ -16,7 +16,7 @@ cd ../fcitx5
 ./install-linux.sh
 ```
 
-脚本不会同步 Rime Ice 的词库、`build/`、用户词频数据库或其他生成文件。
+脚本会在首次运行（`~/.local/share/fcitx5/rime/rime_ice.schema.yaml` 不存在）时自动下载并解压雾凇拼音词库（约 16 MB，走南大镜像，失败回退 GitHub），之后不再覆盖；`build/`、用户词频数据库和其他生成文件始终不动。下载失败时脚本只警告、不中断，按下面的「安装步骤」手动补即可。
 
 
 ## 安装步骤

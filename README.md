@@ -75,14 +75,14 @@ Linux 专用的 Fcitx5 配置位于 `fcitx5/`：
 - `fcitx5/themes/jwu/theme.conf`：白底、蓝色高亮和灰色注释
 - `fcitx5/install-linux.sh`：同步 Fcitx5 和 Rime 用户配置
 
-安装 Fcitx5、`fcitx5-rime` 和 Rime Ice 后运行：
+安装 Fcitx5 和 `fcitx5-rime` 后运行（Rime Ice 词库由脚本在首次运行时自动下载）：
 
 ```bash
 cd ~/bin/desktop-settings/fcitx5
 ./install-linux.sh
 ```
 
-脚本只同步用户补丁和候选窗配置，不提交或覆盖 Rime Ice 词库、`build/`、用户词频数据库和 Fcitx5 的键盘缓存。
+脚本同步用户补丁和候选窗配置；Rime Ice 词库不进仓库，由脚本在首次运行（`rime_ice.schema.yaml` 不存在）时从镜像下载解压，并且**不清空用户目录** —— `build/`、用户词频数据库和 Fcitx5 的键盘缓存始终不动。
 
 ## 更新配置
 

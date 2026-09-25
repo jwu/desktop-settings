@@ -34,7 +34,8 @@
 
 - 只同步用户补丁（`profile`、`classicui.conf`、主题、`rime/*.custom.yaml`），覆盖前备份为
   `.bak.$TIMESTAMP`
-- 不提交或覆盖 Rime Ice 词库、`build/`、用户词频数据库和 Fcitx5 键盘缓存
+- Rime Ice 词库不进仓库：`rime_ice.schema.yaml` 缺失时下载解压（不清空用户目录），
+  但绝不覆盖 `build/`、用户词频数据库和 Fcitx5 键盘缓存
 - 改动后验证：`bash -n fcitx5/install-linux.sh`
 
 ## 文件格式规范
