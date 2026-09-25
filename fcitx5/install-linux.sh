@@ -41,7 +41,7 @@ install_rime_ice() {
   elif command -v unzip &> /dev/null; then
     unzip -q -o "$tmp/full.zip" -d "$RIME_DIR" || { rm -rf "$tmp"; return 1; }
   else
-    echo "Neither bsdtar nor unzip is available to unpack the archive." >&2
+    echo "Neither bsdtar nor unzip is available; install unzip to unpack the archive." >&2
     rm -rf "$tmp"
     return 1
   fi
