@@ -12,7 +12,11 @@ patch:
     - { when: has_menu, accept: minus, send: minus }
     - { when: paging, accept: minus, send: Page_Up }
 
+  # Caps Lock：在中文态按下时点亮系统大写锁定，并同时切到 Rime 的 ascii_mode，
+  # 于是接下来的大写字母直接上屏到应用（不再进候选框）。
+  # commit_code = 若正在打拼音，先上屏原始编码再切英文。
+  ascii_composer/switch_key/Caps_Lock: commit_code
+
   # 方案选单只保留一个热键（雾凇默认是 F4 / Control+grave / Control+Shift+grave）。
-  ascii_composer/switch_key/Caps_Lock: noop
   switcher/hotkeys:
     - Control+Shift+grave
