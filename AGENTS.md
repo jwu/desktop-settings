@@ -40,10 +40,13 @@
 
 `fcitx5/update-rime-dict.sh`：
 
-- 拉取上游 Rime Ice 最新 `full.zip`（南大镜像，失败回退 GitHub），覆盖解压到
-  `~/.local/share/fcitx5/rime`，先把用户目录里的 `*.custom.yaml` 备份为 `.bak.$TIMESTAMP`，
-  再调用 `install-linux.sh` 重新应用补丁并重建
-- `--no-deploy` 只更新词库与补丁，不重建/重载
+- 拉取上游 Rime Ice 最新 `full.zip`（**GitHub 官方优先**，失败回退南大镜像，
+  并用官方 release digest 校验 sha256）覆盖解压到 `~/.local/share/fcitx5/rime`，
+  先把用户目录里的 `*.custom.yaml` 备份为 `.bak.$TIMESTAMP`，再调用 `install-linux.sh`
+  重新应用补丁并重建
+- 南大镜像是缓存，可能滞后数周（实测 2026-06-30 vs 上游 2026-09-25），因此不作为首选；
+  校验不通过会自动回退官方源
+- `--mirror` 镜像优先；`--no-deploy` 只更新词库与补丁，不重建/重载
 - 改动后验证：`bash -n fcitx5/update-rime-dict.sh`
 
 ## 文件格式规范
