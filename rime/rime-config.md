@@ -80,6 +80,29 @@ Rime 配置目录：`~/Library/Rime/`
 3. 复制 `rime_ice.custom.yaml`
 4. 重新部署 Rime（菜单栏输入法图标 → 重新部署）
 
+## 更新词库
+
+`fcitx5/install-linux.sh` 只在首次安装时下载词库，之后不会更新。要跟进上游雾凇拼音的
+词库，运行：
+
+```bash
+cd ../fcitx5
+./update-rime-dict.sh
+```
+
+脚本会下载最新的 `full.zip` 并覆盖解压到用户目录，先把用户目录里的 `*.custom.yaml`
+备份为 `.bak.$TIMESTAMP`，再调用 `install-linux.sh` 重新应用本仓库补丁并按需重建部署。
+
+⚠️ `full.zip` 自带 `default.custom.yaml` / `rime_ice.custom.yaml`，会覆盖本仓库的补丁，
+这正是必须由 `install-linux.sh` 重新复制补丁的原因，因此不要手动解压后就结束。
+
+其他说明：
+
+- 只想更新词库与补丁、不重建：`./update-rime-dict.sh --no-deploy`
+- `tencent.dict.yaml` 是大词库，重建 `prism.bin` 可能需要几分钟
+- `build/`、`*.userdb/`（用户词频）和 `sync/` 不受影响；上游 release 是滚动的
+  `nightly` tag，没有可比对的版本号，直接拉最新即可
+
 ## 配置内容说明
 
 ### 外观配置（squirrel.custom.yaml / weasel.custom.yaml）

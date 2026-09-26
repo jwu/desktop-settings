@@ -1,7 +1,7 @@
 # AGENTS.md - 桌面设置仓库
 
 跨平台桌面配置仓库：Windows、macOS、Linux 的桌面应用与输入法设置。没有构建系统，
-唯一的可执行逻辑是 `fcitx5/install-linux.sh`。
+可执行逻辑是 `fcitx5/` 下的两个脚本：`install-linux.sh` 与 `update-rime-dict.sh`。
 
 ## 仓库结构
 
@@ -37,6 +37,14 @@
 - Rime Ice 词库不进仓库：`rime_ice.schema.yaml` 缺失时下载解压（不清空用户目录），
   但绝不覆盖 `build/`、用户词频数据库和 Fcitx5 键盘缓存
 - 改动后验证：`bash -n fcitx5/install-linux.sh`
+
+`fcitx5/update-rime-dict.sh`：
+
+- 拉取上游 Rime Ice 最新 `full.zip`（南大镜像，失败回退 GitHub），覆盖解压到
+  `~/.local/share/fcitx5/rime`，先把用户目录里的 `*.custom.yaml` 备份为 `.bak.$TIMESTAMP`，
+  再调用 `install-linux.sh` 重新应用补丁并重建
+- `--no-deploy` 只更新词库与补丁，不重建/重载
+- 改动后验证：`bash -n fcitx5/update-rime-dict.sh`
 
 ## 文件格式规范
 
