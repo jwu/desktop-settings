@@ -36,6 +36,8 @@
   `.bak.$TIMESTAMP`
 - Rime Ice 词库不进仓库：`rime_ice.schema.yaml` 缺失时下载解压（不清空用户目录），
   但绝不覆盖 `build/`、用户词频数据库和 Fcitx5 键盘缓存
+- 末尾优先用 DBus `Restart` 重启 fcitx5、失败回退 `fcitx5-remote -r`，确保 Rime 重新
+  加载新 build
 - 改动后验证：`bash -n fcitx5/install-linux.sh`
 
 `fcitx5/update-rime-dict.sh`：

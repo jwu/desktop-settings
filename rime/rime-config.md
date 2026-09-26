@@ -92,6 +92,7 @@ cd ../fcitx5
 
 脚本会下载最新的 `full.zip` 并覆盖解压到用户目录，先把用户目录里的 `*.custom.yaml`
 备份为 `.bak.$TIMESTAMP`，再调用 `install-linux.sh` 重新应用本仓库补丁并按需重建部署。
+脚本最后会重启 fcitx5，确保 Rime 引擎重新加载新词库（只跑 `fcitx5-remote -r` 不保证生效）。
 
 ### 下载源与校验
 

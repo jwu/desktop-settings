@@ -15,6 +15,27 @@ backup_file() {
   fi
 }
 
+# Rime keeps the compiled dictionaries in memory, so reloading fcitx5's config
+# is not always enough to pick up a new build. Prefer a full restart, and fall
+# back to fcitx5-remote -r when the DBus call is unavailable.
+reload_fcitx5() {
+  if command -v gdbus &> /dev/null; then
+    if gdbus call --session --dest org.fcitx.Fcitx5 --object-path /controller \
+        --method org.fcitx.Fcitx.Controller1.Restart &> /dev/null; then
+      echo ">>> Restarted fcitx5 to load the new Rime build."
+      return 0
+    fi
+  fi
+  if command -v fcitx5-remote &> /dev/null; then
+    if fcitx5-remote -r 2> /dev/null; then
+      echo ">>> Reloaded fcitx5 config (restart fcitx5 if Rime still shows old words)."
+      return 0
+    fi
+  fi
+  echo ">>> Warning: could not restart fcitx5; restart it manually." >&2
+  return 0
+}
+
 # Rime Ice is a third-party 16 MB release that moves independently of this repo,
 # so it is not vendored here. Install it on the first run only, and never clear
 # the user directory: *.userdb holds the learned frequency data, which is exactly
@@ -80,7 +101,7 @@ if command -v rime_deployer &> /dev/null && [ -f /usr/share/rime-data/default.ya
   rime_deployer --build "$RIME_DIR" /usr/share/rime-data "$RIME_DIR/build"
 fi
 
-fcitx5-remote -r 2>/dev/null || true
+reload_fcitx5
 
 echo "Fcitx5 configuration installed."
 echo "Rime Ice dictionaries are installed on the first run when missing;"
