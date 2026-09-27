@@ -1,3 +1,47 @@
+> [!WARNING]
+> **本仓库已废弃（DEPRECATED），不再维护。**
+>
+> 内容已迁入 **[jwu/dotfiles](https://github.com/jwu/dotfiles)**——一份 chezmoi 源，统一管理
+> macOS / Linux / Windows。新机器不要再跑本仓库的 `mac/install.sh` 或
+> `fcitx5/install-linux.sh`，按新仓库的 bootstrap 脚本落地：
+>
+> ```bash
+> # Linux
+> sh -c "$(curl -fsLS https://raw.githubusercontent.com/jwu/dotfiles/main/bootstrap/arch.sh)"
+>
+> # macOS（Homebrew 要先装好）
+> bash -c "$(curl -fsLS https://raw.githubusercontent.com/jwu/dotfiles/main/bootstrap/macos.sh)"
+> ```
+>
+> ```bat
+> :: Windows（无需管理员）
+> curl -fsSL https://raw.githubusercontent.com/jwu/dotfiles/main/bootstrap/windows.bat -o "%TEMP%\dotfiles-bootstrap.bat"
+> "%TEMP%\dotfiles-bootstrap.bat"
+> ```
+>
+> 各项内容的去向：
+>
+> | 本仓库 | 现在 |
+> | --- | --- |
+> | `fcitx5/profile`、`classicui.conf`、`themes/jwu/` | `dot_config/fcitx5/`、`dot_local/share/fcitx5/themes/jwu/` |
+> | `fcitx5/install-linux.sh` | `run_onchange_after_40-fcitx5.sh.tmpl` |
+> | `fcitx5/update-rime-dict.sh` | `scripts/update-rime-dict.sh` |
+> | `rime/default.custom.yaml`、`rime_ice.custom.yaml` | `dot_local/share/fcitx5/rime/` |
+> | `rime/squirrel.custom.yaml` | `private_Library/Rime/squirrel.custom.yaml` |
+> | `rime/weasel.custom.yaml` | `AppData/Roaming/Rime/weasel.custom.yaml` |
+> | `aerospace/.aerospace.toml` | `dot_aerospace.toml` + `run_onchange_after_70-aerospace.sh.tmpl` |
+> | `zed/settings.json` | `dot_config/zed/private_settings.json`、`AppData/Roaming/Zed/private_settings.json` |
+> | `mac/install.sh` | `bootstrap/macos.sh` |
+> | `totalcmd/wincmd.ini` | 只留脱敏基线 `AppData/Roaming/GHISLER/create_wincmd.ini`；原文件含本机安装路径与窗口布局，而且 Total Commander 会持续回写它 |
+> | `inputsource-pro/`、`obsidian/`、`rime/`、`zed/`、`aerospace/`、`totalcmd/` 的说明 | `docs/` 下的同名目录 |
+> | 本 README 的 Reference 清单 | [`docs/reference-desktop.md`](https://github.com/jwu/dotfiles/blob/main/docs/reference-desktop.md) |
+> | `*/images/` 下的截图 | 未迁移；文字已并入上面那些文档 |
+>
+> 下面的正文是历史存档，其中 `cd ~/bin/desktop-settings/... && ./install.sh` 这类步骤
+> **已不再适用**。
+
+---
+
 # Desktop Settings
 
 个人桌面配置文件仓库
